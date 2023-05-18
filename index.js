@@ -45,9 +45,6 @@ const definir_iniciales_nombre = (heroe) => {
   }
 };
 
-//console.log(extraer_iniciales("Howard the Duck"));
-//definir_iniciales_nombre(lista_personajes);
-
 //1. Funcion debera validar que lista_heroes sea del tipo lista y que la lista tenga al menos un elemento
 //debera iterar la lista_heroes pasando cada heroe a la función definir_iniciales_nombre.
 //validar que la funcion definir_iniciales_nombre retorne false, en caso de que retorne false se debera detener
@@ -68,7 +65,7 @@ const agregar_iniciales = (lista_heroes) => {
           break;
         }
       }
-      return formato_correcto
+      return formato_correcto;
     } else {
       console.log("Error: la lista debe contener al menos un elemento");
       return false;
@@ -80,3 +77,31 @@ const agregar_iniciales = (lista_heroes) => {
 };
 
 agregar_iniciales(lista_personajes);
+
+// 1. La función deberá utilizar la función 'agregar_iniciales_nombre' Se deberá validar:
+// ● Que lista_heroes sea del tipo lista
+// ● Que la lista contenga al menos un elemento
+// deberá imprimir la lista completa de los nombres de los personajes seguido de las iniciales encerradas entre paréntesis ()
+// Delante de cada nombre se deberá agregar un asterisco ‘*’ (de forma de viñeta) seguido de un espacio.
+// 2.recibirá como parámetro lista_heroes
+// 3. La función no retorna nada
+
+const stark_imprimir_nombres_con_iniciales = (lista_heroes) => {
+  if (Array.isArray(lista_heroes)) {
+    if (lista_heroes.length) {
+      let nombre_con_iniciales = "";
+      for (let i = 0; i < lista_heroes.length; i++) {
+        nombre_con_iniciales += `*${agregar_iniciales(lista_heroes)[i]} (${i.iniciales})`;
+        
+      }
+      document.getElementById("nombres_iniciales").innerHTML = nombre_con_iniciales;
+    }else{
+      console.log("Error: la lista debe contener al menos un elemento")
+    }
+  } else {
+    console.log("Error: lista_heroes debe ser del tipo Array")
+  }
+};
+
+stark_imprimir_nombres_con_iniciales(lista_personajes);
+
