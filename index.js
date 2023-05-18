@@ -46,8 +46,7 @@ const definir_iniciales_nombre = (heroe) => {
 };
 
 //console.log(extraer_iniciales("Howard the Duck"));
-//definir_iniciales_nombre(lista_personajes[0]);
-
+//definir_iniciales_nombre(lista_personajes);
 
 //1. Funcion debera validar que lista_heroes sea del tipo lista y que la lista tenga al menos un elemento
 //debera iterar la lista_heroes pasando cada heroe a la función definir_iniciales_nombre.
@@ -58,20 +57,26 @@ const definir_iniciales_nombre = (heroe) => {
 //en caso de que haya ocurrido un error
 
 const agregar_iniciales = (lista_heroes) => {
-  if(Array.isArray(lista_heroes){
-    console.log(lista_heroes);
-      lista_heroes.forEach(heroe => {
-        
-        if(!definir_iniciales_nombre(heroe)) {
-          console.log("el origen de los datos no contiene formato")
-        }});
-      
-    }else{
-
+  if (Array.isArray(lista_heroes)) {
+    if (lista_heroes.length) {
+      let formato_correcto = true;
+      for (let i = 0; i < lista_heroes.length; i++) {
+        const heroe = lista_heroes[i];
+        if (!definir_iniciales_nombre(heroe)) {
+          formato_correcto = false;
+          console.log("el origen de los datos no contiene formato");
+          break;
+        }
+      }
+      return formato_correcto
+    } else {
+      console.log("Error: la lista debe contener al menos un elemento");
+      return false;
     }
-
-}
+  } else {
+    console.log("Error: lista_heroes debe ser del tipo Array");
+    return false;
+  }
+};
 
 agregar_iniciales(lista_personajes);
-
-
