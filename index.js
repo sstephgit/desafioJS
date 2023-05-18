@@ -36,6 +36,7 @@ const definir_iniciales_nombre = (heroe) => {
     if (Object.keys(heroe).includes("nombre")) {
       heroe["iniciales"] = extraer_iniciales(heroe.nombre);
       console.log(heroe);
+      return true;
     } else {
       return false;
     }
@@ -45,4 +46,32 @@ const definir_iniciales_nombre = (heroe) => {
 };
 
 //console.log(extraer_iniciales("Howard the Duck"));
-definir_iniciales_nombre(lista_personajes[0]);
+//definir_iniciales_nombre(lista_personajes[0]);
+
+
+//1. Funcion debera validar que lista_heroes sea del tipo lista y que la lista tenga al menos un elemento
+//debera iterar la lista_heroes pasando cada heroe a la función definir_iniciales_nombre.
+//validar que la funcion definir_iniciales_nombre retorne false, en caso de que retorne false se debera detener
+// la iteracion e informar por pantalla el siguiente mensaje: ‘El origen de datos no contiene el formato correcto’
+//2. se recibira como parametro lista_heroes
+//3. La función deberá devolver True en caso de haber finalizado con éxito o False
+//en caso de que haya ocurrido un error
+
+const agregar_iniciales = (lista_heroes) => {
+  if(Array.isArray(lista_heroes){
+    console.log(lista_heroes);
+      lista_heroes.forEach(heroe => {
+        
+        if(!definir_iniciales_nombre(heroe)) {
+          console.log("el origen de los datos no contiene formato")
+        }});
+      
+    }else{
+
+    }
+
+}
+
+agregar_iniciales(lista_personajes);
+
+
